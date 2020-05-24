@@ -1,0 +1,196 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.top-wrapper{
+    margin: 0px auto 0 auto;
+    width:100%;
+    height:400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.subpage{
+    height:200px;    
+}
+
+.thumbnail img{
+    width:100%;
+    height:400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.theme-content{
+    position:absolute;
+    top:20%;
+    left:20%;    
+    margin:0 auto;
+    /*background-image:url("thumbnail.svg") ;*/
+    color:white;
+    text-align:left;
+}
+
+.search-container{
+    position: relative;
+    box-sizing: border-box;
+    width: 30px;
+    height: 50px;
+    margin: 0px auto;
+    background-color: white;
+    border-radius: 30px;  
+}
+
+.search-box{
+    border-color: white;
+    width: 300px;
+    height: 3.0em;
+    margin-top:50px;
+    background-color: white;
+    border-radius: 30px;
+
+    padding:-2px;
+    border: 2px solid #3879D9;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-box input[type="text"]{
+    border: none;
+    padding:5px 0 5px 15px;
+    line-height: 3.0em;
+    width:241.63px;
+    font-size: 18px;
+    text-align: left;
+}
+.search-box input[type="text"]:focus {
+    outline: 0;
+}
+
+.search-box input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    border: none;
+    background: #3879D9;
+    color: #fff;
+    width: 50px;
+    height: 3.0em;
+}
+.search-box ::-webkit-input-placeholder {
+    color: #3879D9;
+}
+
+/////////////////////////
+
+.content-wrapper{
+    max-width: 1170px;
+    margin:0 auto;
+    padding:10px 50px 0 50px;
+}
+
+.content-header{
+    margin:30px auto;
+    width:250px;
+    padding:5px;
+    text-align: center;
+    background-color:rgba(255,100,100,1.0);
+    color:white;
+    border-radius: 20px;
+}
+
+.content-list{
+    padding:0 30px;
+    margin:0px auto;
+    display: flex;
+
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.content{
+    width:250px;
+    height:280px;
+    padding-bottom:15px;
+    margin:0.3em 0.1em;
+    background-color:rgba(200,200,200,0.1);
+}
+
+.content img{
+    width:100%;
+    height:140px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin-bottom:10px;
+}
+
+.content h3{
+    color:rgba(255,100,100,1.0);
+    font-weight:bold;
+    font-size:14px;
+    line-height:1em; /*行間の調整*/
+    padding:0px 20px;
+    margin: 0.4em 0;
+}
+
+.content p{
+    color:rgba(50,50,50,1.0);
+    font-size:12px;
+    line-height:1em; /*行間の調整*/
+    padding:0px 20px;
+    margin: 0.4em 0;
+}
+
+
+.content:hover{
+    background-color:rgba(255,100,100,0.1);
+    cursor: pointer;
+    color:rgba(255,50,50,1.0);
+    border:0.5px solid rgba(255,50,50,1.0);
+}
+
+/////////////////////////////////////////////////////
+
+.content-text h1{
+    line-height: 40px;
+    font-size:24px;
+    color:rgba(255,100,100,1.0);
+}
+
+.content-text p{
+    padding: 0 20px;
+    line-height: 2em;
+    font-size:15px;
+    color:rgba(50,50,50,1.0);
+    font-weight:lighter;
+}
+
+.profile_textarea {
+    height:100px;
+}
+
+//////////////////////////////////////////////////////
+
+.form_wrapper{
+    max-width:1200px;
+    padding:20px 50px;
+}
+
+.form_wrapper h1,p{
+    color:rgba(255,100,100,1.0);
+}
+
+.field{
+    color:rgba(255,100,100,1.0);
+    font-size:10px;
+    line-height: 40px;
+}
+
+///////////////////////////////////////////////////////////////////////
+.event-content{
+    margin:0 auto;
+    width:100%
+}

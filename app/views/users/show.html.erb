@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+    <% if @user.present? %>
+      <div class="row col-md-10 col-lg-7 mx-auto my-5">
+      
+        <div class="col-5">
+          <%= image_tag "/uploads/user/image/#{@user.id}.jpg", class:"rounded-circle", :width=>"100%"  %>
+        </div>
+    
+        <div class="col-7 my-auto">
+          <p class="h5 mx-auto">
+            <%= @user.name %>
+          </p>
+
+          <p class="h6 mx-auto">
+            <%= @user.job %>
+          </p>
+
+          <p class="h6 mx-auto">
+            <%= @user.content %>
+          </p>
+
+          <p class="h6 mx-auto">
+            <strong>USER ID:</strong>
+            <%= @user.id %>
+          </p>
+
+          <% if @current_user.present? %>
+          <% if @user.id == @current_user.id %>
+          <%= link_to('アカウント情報を編集', "/users/#{@user.id}/edit", class:"btn-primary btn-sm mx-auto") %>
+          <% end %>
+          <% end %>
+
+        </div>
+      </div>
+
+      <% @user.posts.each do |post| %>      
+      <div class="row col-md-10 col-lg-7 mx-auto border">
+          <div class="col-5 py-3 pl-0">
+          <%= image_tag "/uploads/post/image/#{post.id}.jpg", width:"100%", alt:post.title %>
+          </div>
+          <div class="col-7">
+            <a href=<%="/posts/#{post.id}" %>>
+            <p class="my-auto pt-3 font-weight-bold"><%= post.title %></p>
+            <% weeks = ["月","火","水","木","金","土","日"] %>
+            <% index = post.starttime.strftime("%u").to_i %>
+            <p class="my-auto">日時：<%= post.starttime.strftime("%-m月%-d日(#{weeks[index - 1]}) %-H:%-M") %></p>
+            <p class="my-auto">主催：<%= @user.name %></p>
+            <p class="my-auto">カテゴリ：<%= post.category %></p>
+            <p class="my-auto pb-5 text-wrap text-truncate" style="height:6em;" ><%= post.content %></p>
+            </a>
+          </div>
+      </div>
+    <% end %>
+    <% else %>
+    ページが存在しません
+    <% end%>
+
+    <div class="row my-5 mx-auto">
+    <%= link_to('トークルーム一覧に戻る', posts_path, class:"btn-primary btn-lg mx-auto") %>
+    </div>
+
+</div>

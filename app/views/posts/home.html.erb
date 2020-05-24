@@ -1,0 +1,42 @@
+<div class="top-wrapper">
+  <div class="theme-content">
+    <h1>Talk to create our own lives.</h1>
+    <a class="search-container">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <form method="get" action="#" class="search-box">
+    <input type="text" size="25" placeholder="トークルームを検索する">
+    <input type="submit" value="&#xf002">
+    </form>
+    </a>
+  </div>
+  <div class="thumbnail">
+  <%= image_tag "thumbnail.svg", alt:"hitajico_home", width:"100%" %>
+  </div>
+</div>
+        
+<div class="content-wrapper">
+  <div class="content-header">
+    トークルーム
+  </div>
+
+  <div class="content-list">
+    <% @posts.each do |post| %>
+      
+      <div class="content-box">
+      <a href=<%="/posts/#{post.id}" %>>
+        <%= image_tag "/uploads/post/image/#{post.id}.jpg", alt:post.title %>
+        <h3><%= post.title %></h3>
+        <% weeks = ["月","火","水","木","金","土","日"] %>
+        <% index = post.starttime.strftime("%u").to_i %>
+        <p>日時：<%= post.starttime.strftime("%-m月%-d日(#{weeks[index - 1]}) %-H:%-M") %></p>
+        <p>主催：<%= post.userid %></p>
+        <p>カテゴリ：<%= post.category %></p>
+        <p class="text-wrap text-truncate" style="height:5em;" ><%= post.content %></p>
+        <br>
+      </a>
+      </div>
+      
+    <% end %>
+  </div>
+
+</div>

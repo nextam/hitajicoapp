@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SampleApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-5" style="background-color:rgba(255,100,100,1);">
+      <% if @current_user %>
+        <a class="navbar-brand h1" href="/posts">hitajico</a>
+      <% else %>
+        <a class="navbar-brand h1"  href="/">hitajico</a>
+      <% end %>
+
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <% if session[:user_id] %>
+            <a class="nav-item nav-link active" href="/posts">トークルーム<span class="sr-only">(現位置)</span></a>
+            <a class="nav-item nav-link text-white" href="/posts/new">新規投稿</a>
+            <a class="nav-item nav-link text-white" href=<%="/users/#{@current_user.id}"%> ><%= @current_user.name %></a>
+            <a class="nav-item nav-link text-white" href="/logout" data-method="post" >ログアウト</a>
+          <% else %>
+            <a class="nav-item nav-link active" href="/about">hitajicoとは<span class="sr-only">(現位置)</span></a>
+            <a class="nav-item nav-link text-white" href="/posts">トークルーム</a>
+            <a class="nav-item nav-link text-white" href="/users/new">新規登録</a>
+            <a class="nav-item nav-link text-white" href="/login">ログイン</a>
+          <% end %>
+        </div>
+      </div>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+          $('.navbar-nav li a').click(function(event){
+          $('.navbar-collapse').collapse('hide');
+          });
+        });
+        </script>
+
+
+      <div class="collapse navbar-collapse" id="navbarForm">
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+          <input class="form-control form-sm mr-sm-2 bg-light" type="text" placeholder="検索..." aria-label="検索...">
+          <button type="submit" class="btn btn-outline-success my-2 my-sm-0 bg-light ">検索</button>
+        </form>
+      </div>
+
+    </nav>
+  
+    <% if flash[:notice] %>
+      <div class="h6 d-block text-center bg-primary py-2 text-white">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <div class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-content">
+            <h2>hitajico</h2>
+          <div class="footer-list">
+            <a href="/about">hitajicoとは</a>
+            <a href="/">トークルーム</a>
+            <a>ログイン・新規登録</a>
+            <a>運営会社</a>
+            <a>プライバシーポリシー</a>
+          </div>
+          <div class="copy-right">
+            <a>Copyright🄫hitajico. All Rights Reserved.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
